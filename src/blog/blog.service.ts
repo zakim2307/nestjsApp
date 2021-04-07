@@ -18,8 +18,22 @@ export class BlogService {
     return post;
   }
 
-  async getPosts(): Promise<Post> {
+  async getPosts(): Promise<Post[]> {
     const posts = await this.postModel.find().exec();
     return posts;
+  }
+
+  async editPost(postID, createPostDTO: CreatePostDTO): Promise<Post> {
+    const editedPost = await this.postModel.findByIdAndUpdate(
+      postID,
+      createPostDTO,
+      { new: true },
+    );
+    return editedPost;
+  }
+
+  async deletePost(postID): Promise<Post> {
+    const deletedPost = await this.postModel.findByIdAndDelete(postID);
+    return deletedPost;
   }
 }
