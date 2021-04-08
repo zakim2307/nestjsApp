@@ -32,7 +32,7 @@ export class BlogService {
     return editedPost;
   }
 
-  async deletePost(postID): Promise<Post> {
+  async deletePost(postID): Promise<any> {
     const deletedPost = await this.postModel.findByIdAndDelete(postID);
     return deletedPost;
   }

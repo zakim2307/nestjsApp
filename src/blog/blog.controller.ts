@@ -44,12 +44,13 @@ export class BlogController {
     return res.status(HttpStatus.OK).json(posts);
   }
 
-  @Put('/edit')
+  @Put('/edit/:postID')
   async editPost(
     @Res() res,
-    @Query('postID', new ValidateObjectId()) postID,
+    @Param('postID', new ValidateObjectId()) postID,
     @Body() createPostDTO: CreatePostDTO,
   ) {
+    console.log('hey', postID);
     const editedPost = await this.blogService.editPost(postID, createPostDTO);
     if (!editedPost) {
       throw new NotFoundException('Post does not Exist');
@@ -60,11 +61,12 @@ export class BlogController {
     });
   }
 
-  @Delete('/delete')
+  @Delete('/delete/:postID')
   async deletePost(
     @Res() res,
-    @Query('postID', new ValidateObjectId()) postID,
+    @Param('postID', new ValidateObjectId()) postID,
   ) {
+    console.log('post id', postID);
     const deletedPost = await this.blogService.deletePost(postID);
     if (!deletedPost) {
       throw new NotFoundException('Post Does Not Exist');
