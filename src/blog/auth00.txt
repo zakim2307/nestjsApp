@@ -1,0 +1,3 @@
+MDPZmITrdOHPKQw9b0n-oXpgslyTlHpWch08tqJzmKPI3OJ7RY91EL1w3n-GUSzX (client secret)
+LpwiKMJ3CODlDmDqJ9SppoIbHX7SSI7s (client id)
+dev-9dl527q5.jp.auth0.com (Domain)
